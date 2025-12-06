@@ -6,6 +6,27 @@
 <title>APEX HEAVEN OF AAA GAMES</title>
 
 <style>
+.particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #00eaff;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px #00eaff);
+  animation: particleMove 0.6s linear forwards;
+}
+
+@keyframes particleMove {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.2);
+  }
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -116,7 +137,31 @@ body {
 <h1 style="padding: 80px 20px;">Apex Heaven Of AAA Games</h1>
 
 <h2 style="parallax: 80px 20px;">Top 100 AAA title games available here</h2>
+<script>
+document.addEventListener("click", function(e) {
+  const particles = 5; // number of particles
 
+  for (let i = 0; i < particles; i++) {
+    const p = document.createElement("div");
+    p.className = "particle";
+
+    // random direction
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = 40 + Math.random() * 40;
+
+    p.style.left = e.clientX + "px";
+    p.style.top = e.clientY + "px";
+
+    // movement
+    p.style.setProperty("--dx", Math.cos(angle) * distance + "px");
+    p.style.setProperty("--dy", Math.sin(angle) * distance + "px");
+
+    document.body.appendChild(p);
+
+    setTimeout(() => p.remove(), 600);
+  }
+});
+</script>
 </body>
 </html<!DOCTYPE html>
 <html lang="en">
@@ -152,35 +197,69 @@ body {
     }
   </style>
 </head>
+<input type="text" id="searchBar" placeholder="Search games..." onkeyup="searchGame()" style="
+  width: 90%;
+  padding: 12px;
+  margin: 10px auto;
+  display: block;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #444;
+  background: #111;
+  color: white;
+">
 <body>
   <h1>Your Gaming Hub Awaits!</h1>
-  <ul>
+  <ul id="gamelist">
     <li><a href="https://t.me/ApexGamesForAndroid/4" target="_blank">Grand Theft Auto: San Andreas</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">GTA Vice City</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">GTA 3</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Chinatown Wars</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Bully:Anniversary Edition</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Max Payne Mobile</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Stardew Valley</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Terraria</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Minecraft</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Dead Cells</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Grimvalor</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Oddmar</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Castlevania: SotN</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">LIMBO</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Inside</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">The Room Series</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Alien: Isolation</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Rome Total war(all campaigns)</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Company of heroes</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">XCOM:Enemy within</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Grid Autosport</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Portal 1 mobile</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Portal RTX(via cloud gaming)</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Life is Strange</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">The Walking Dead series</li>
-    <li><a href="YOUR_LINK_HERE" target="_blank">Beothers:a tale of two sons</li>
+    <li><a href="https://dl.apkvision.org/Grand-Theft-Auto-Vice-City-v1-12.apk" target="_blank">GTA Vice City</li>
+    <a href="https://dl.apkvision.org/Grand-Theft-Auto-Vice-City-v1-12-cache.zip" target="_blank">
+    <button>OBB</button>
+</a>
+    <li><a href="https://dl.apkvision.org/grand-theft-auto-3/GTA-3-v1-9-patched.apk" target="_blank">GTA 3</li>
+    <a href="https://dl.apkvision.org/GTA-III-v1-9-cache-apkvision.zip"target="_blank">
+      <button>OBB</button>
+      </a>
+    <li><a href="https://dl.apkvision.org/gta-chinatown-wars/GTA-CTW-v4.4.221-full-apkvision.apk" target="_blank">Chinatown Wars</li>
+    <li><a href="https://cdn901.onehost.io/2023/Bully_Anniversary_Edition_1.4.299_1746117072_latestmodapks.com.apk" target="_blank">Bully:Anniversary Edition</li>
+    <li><a href="https://dl.apkvision.org/max-payne-mobile/max-payne-mobile-v1.7.apk" target="_blank">Max Payne Mobile</li>
+    <a href="https://dl.apkvision.org/max-payne-mobile-v1.7.zip"target="_blank">
+      <button>OBB</button>
+      </a>
+    <li><a href="https://stardewvalleyapks.net/download-apk/#" target="_blank">Stardew Valley</li>
+    <li><a href="https://dl.apkvision.org/terraria/Terraria-v1.4.4.9.8-full-apkvision.apk" target="_blank">Terraria</li>
+    <li><a href="https://minecrapp.com.co/apk/" target="_blank">Minecraft</li>
+    <li><a href="https://dl.apkvision.org/dead-cells/Dead-Cells-v3.5.9-unlocked-apkvision.apk" target="_blank">Dead Cells</li>
+    <li><a href="https://dl.apkvision.org/grimvalor/Grimvalor-v1.2.11-mod-menu-apkvision.apk" target="_blank">Grimvalor</li>
+    <li><a href="https://dl.apkvision.org/oddmar/Oddmar-v0.111-b265-unlocked-apkvision.apk" target="_blank">Oddmar</li>
+    <li><a href="https://d.apkpure.net/b/APK/com.PracticalGames.CastlevaniaNocturneGame?version=latest" target="_blank">Castlevania: SotN</li>
+    <li><a href="https://dl.apkvision.org/limbo/LIMBO-v1.21-full-apkvision.apk" target="_blank">LIMBO</li>
+    <li><a href="https://d.cdnpure.com/b/APK/playdead.inside.playdeadinside?version=latest" target="_blank">Inside</li>
+    <li><a href="https://dl.apkvision.org/the-room/The-Room-v1.11-full-apkvision.apk" target="_blank">The Room 1</li>
+    <a href="https://dl.apkvision.org/the-room-two/The-Room-Two-v1.13-full-apkvision.apk"target="_blank">
+      <button>The Room 2</button>
+      </a>
+      <a href="https://dl.apkvision.org/the-room-three/The-Room-Three-v1.09-full-apkvision.apk"target="_blank">
+      <button>The Room 3</button>
+      </a>
+      <a href="https://dl.apkvision.org/the-room-old-sins/Old-Sins-v1.0.5-full-apkvision.apk"target="_blank">
+      <button>The Room:Old sins</button>
+      </a>
+    <li><a href="https://dl.apkvision.org/alien-isolation/alien-isolation-v1.4.1rc1-mod-apkvision.apk" target="_blank">Alien: Isolation</li>
+    <li><a href="https://dl.apkvision.org/rome-total-war/rome-total-war-v2.0RC18-mod-apkvision.apk" target="_blank">Rome Total war(all campaigns)</li>
+    <li><a href="https://dl.apkvision.org/company-of-heroes/company-of-heroes-1.7.1rc5-mod-apkvision.apk" target="_blank">Company of heroes</li>
+    <li><a href="https://dl.apkvision.org/xcom-enemy-within/XCOM-Enemy-Within-v1-7-01.apk" target="_blank">XCOM:Enemy within</li>
+    <li><a href="https://dl.apkvision.org/grid-autosport/grid-autosport-1.10.2RC1-mod-apkvision.apk" target="_blank">Grid Autosport</li>
+    <li><a href="https://s1.5playdisk.com/0de4fc1e20b27725f2011faab2ded7e7:2025120617/files/portal-v79-mod-5play.ru.apk" target="_blank">Portal 1 mobile</li>
+    <a href="https://s1.5playdisk.com/82bc05c406871755b54f6ee452717486:2025120617/files/com.nvidia.valvesoftware.portal.zip" target="_blank">
+      <button>OBB</button>
+    <li><a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://play.google.com/store/apps/details%3Fid%3Dcom.squareenix.lis%26hl%3Den%26referrer%3Dutm_source%253Dgoogle%2526utm_medium%253Dorganic%2526utm_term%253Dlife%2Bis%2Bstrange%2Bandroid%26pcampaignid%3DAPPU_1_Qjc0adyTMK6enesP2vzX8Qs&ved=2ahUKEwjcvNuBkKmRAxUuT2cHHVr-Nb4Q44QBegQIDRAJ&usg=AOvVaw0YvC5_ffBq5qB4HMBIykVK" target="_blank">Life is Strange</li>
+    <li><a href="https://dl.apkvision.org/the-walking-dead-season-one/the-walking-dead-season-one-mod_1.23-apkvision.apk" target="_blank">The Walking Dead season 1</li>
+   <a href="https://dl.apkvision.org/the-walking-dead-season-two/the-walking-dead-season-two-v1.38-Adreno-apkvision.apk" target="_blank">
+      <button>Season 2</button>
+     <a href="https://dl.apkvision.org/the-walking-dead-season-three/the-walking-dead-season-three-v1.07-apkvision.apk" target="_blank">
+      <button>Walking dead:a new fronti</button>
+    <li><a href="https://cdn903.onehost.io/2023/Brothers_A_Tale_Of_Two_Sons_1.0.0_1695446739_latestmodapks.com.xapk" target="_blank">Beothers:a tale of two sons</li>
     <li><a href="YOUR_LINK_HERE" target="_blank">Dragon quest series</li>
     <li><a href="YOUR_LINK_HERE" target="_blank">Final Fantasy</li>
     <li><a href="YOUR_LINK_HERE" target="_blank">Final Fantasy 7</li>
@@ -207,5 +286,16 @@ body {
     <li><a href="YOUR_LINK_HERE" target="_blank">Shadowgun Legends</li>
     <li>COMING SOON....................................................</li>
   </ul>
+  <script>
+function searchGame() {
+    const input = document.getElementById("searchBar").value.toLowerCase();
+    const items = document.querySelectorAll("#gameList li");
+
+    items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(input) ? "" : "none";
+    });
+}
+</script>
 </body>
 </html>
