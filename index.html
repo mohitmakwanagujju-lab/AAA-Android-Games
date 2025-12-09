@@ -713,6 +713,40 @@ function openGame(url) {
 </style>
     <!-- GAME GALLERY SECTION -->
 <style>
+.page-box-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.page-box {
+    width: 80%;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(45deg, #ff0059, #ff8c00);
+    box-shadow: 0 0 30px rgba(255,100,0,0.6);
+    animation: glow 2s infinite alternate;
+}
+
+.page-box-title {
+    font-size: 28px;
+    color: white;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.page-box-sub {
+    font-size: 18px;
+    color: #ffe9e9;
+    margin-top: 8px;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(255,80,0,0.4); }
+    100% { box-shadow: 0 0 40px rgba(255,150,0,0.9); }
+}
 .game-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -777,8 +811,6 @@ function openGame(url) {
     <li><a href="https://dl.apkvision.org/hyper-light-drifter/Hyper-Light-Drifter-v1.1.99-full-apkvision.apk" target="_blank">Hyper light drifter</li>
     <li><a href="https://dl.apkvision.org/oceanhorn/Oceanhorn-v1.1.11-unlocked-apkvision.apk" target="_blank">Oceanhorn</li>
     <li><a href="https://dl.apkvision.org/shadowgun-legends/Foundation_%20Galactic%20Frontier_1.0.27.183423_apkvision.xapk" target="_blank">Shadowgun Legends</li>
-    <img src="GIF 720x90px.gif">
-    <a href="https://beta.publishers.adsterra.com/referral/pz8quy6LZP" rel="nofollow">Referral link</a>
 
 </div>
 
@@ -803,5 +835,12 @@ function searchGame() {
   type="text/javascript"
   src="//pl28211315.effecútivegatecpm.com/24/86/1c/24861c0378054bf4f5766c2eea7e89a8.js"
 ></script>
+<div class="page-box-container">
+    <a href="page2.html" class="page-box">
+        <div class="page-box-title">PAGE 2 →</div>
+        <div class="page-box-sub">Check Out More Games</div>
+    </a>
+    <a href="Page2.html" class="download-btn">NEXT →</a>
+</div>
 </body>
 </html>
