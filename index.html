@@ -842,5 +842,21 @@ function searchGame() {
     </a>
     <a href="Page2.html" class="download-btn">NEXT →</a>
 </div>
+<script>
+function searchGame() {
+    let input = document.getElementById("searchBar").value.toLowerCase();
+    let cards = document.getElementsByClassName("game-card");
+
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector("p").innerText.toLowerCase();
+
+        if (title.includes(input)) {
+            cards[i].style.display = "block";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
 </body>
 </html>
